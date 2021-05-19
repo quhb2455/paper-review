@@ -1,2 +1,3 @@
-### Paper review list
-https://www.notion.so/Paper-7ad7fc01c8df4e7791b47529381c481d
+### About Me (korean)
+
+https://www.notion.so/978cc0e8de2c40d9b4ab9cb366807a7d
