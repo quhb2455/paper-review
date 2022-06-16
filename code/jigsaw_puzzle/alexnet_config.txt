@@ -1,0 +1,49 @@
+1. Response-normalization layers follow the first and second convolutional layers
+2. Max-pooling layers, of the kind described in Section 3.4, follow both response-normalization layers as well as the fifth convolutional layer
+3. The ReLU non-linearity is applied to the output of every convolutional and fully-connected layer.
+
+- The first convolutional layer filters the 224×224×3 input image with 96 kernels of size 11×11×3 with a stride of 4 pixels
+- The second convolutional layer takes as input the (response-normalized and pooled) output of the first convolutional layer and filters it with 256 kernels of size 5 × 5 × 48.
+- The third, fourth, and fifth convolutional layers are connected to one another without any intervening pooling or normalization layers. 
+- The third convolutional layer has 384 kernels of size 3 × 3 × 256 connected to the (normalized, pooled) outputs of the second convolutional layer.
+- The fourth convolutional layer has 384 kernels of size 3 × 3 × 192 , 
+- The fifth convolutional layer has 256 kernels of size 3 × 3 × 192. The fully-connected layers have 4096 neurons each.
+- maxpool kernel size = 3, stride = 2
+- RNL k = 2, n = 5, α = 0.0001 , and β = 0.75
+
+- initialized the weights in each layer from a zero-mean Gaussian distribution with standard deviation 0.01.
+- initialized the neuron biases in the second, fourth, and fifth convolutional layers, as well as in the fully-connected hidden layers, with the constant 1.
+- initialized the neuron biases in the remaining layers with the constant 0.
+
+- We use dropout in the first two fully-connected layers of Figure 2.
+
+== First ==
+conv2d(in=3, out=96, kernel=11, padding=2, stride=4)
+ReLU
+Response-normalization(size=5, k=2, alpha=0.0001, beta=0.75)
+Max-pooling(kernel=3, stride=2)
+
+== Second == 
+conv2d(in=96, out=256, kernel=5)
+ReLU
+Response-normalization(size=5, k=2, alpha=0.0001, beta=0.75)
+Max-pooling(kernel=3, stride=2)
+
+== Third ==
+conv2d(in=256, out=384, padding=1, kernel=3)
+ReLU
+
+== Fourth ==
+conv2d(in=384, out=384, padding=1, kernel=3)
+ReLU
+
+== Fifth ==
+conv2d(in=384, out=256, padding=1, kernel=3)
+ReLU
+Max-pooling(kernel=3, stride=2)
+
+== FC ==
+Linear(256 * 6 * 6, 4096)
+ReLU
+Linear(4096, 4096)
+ReLU

@@ -1,0 +1,12 @@
+pipeline
+
+1. we resize each input image until either the height or the width matches 256 pixels and preserve the original aspect ratio.
+2. we crop a random region from the resized image of size 225 × 225
+3. split it into a 3 × 3 grid of 75 × 75 pixels tiles.
+4. extract a 64 × 64 region from each tile by introducing random shifts ==> random crop 말하는 듯
+5. feed them to the network
+
+- Color jitter
+1. crop the central square of the original image and resize it to 255 × 255
+2. train the network with both color and grayscale images. Our training set is a composition of grayscale and color images with a ratio of 30% to 70%
+3. jitter the color channels of the color images of each tile randomly by ±0, ±1, ±2 pixels
