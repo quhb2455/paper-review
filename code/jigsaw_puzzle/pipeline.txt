@@ -1,6 +1,9 @@
 pipeline
 
 1. we resize each input image until either the height or the width matches 256 pixels and preserve the original aspect ratio.
+	=> w, h 중 작은 값을 기준으로 resize
+	ex) w= 300 h= 400 => w=256 h=256*(400/300)
+	
 2. we crop a random region from the resized image of size 225 × 225
 3. split it into a 3 × 3 grid of 75 × 75 pixels tiles.
 4. extract a 64 × 64 region from each tile by introducing random shifts ==> random crop 말하는 듯
