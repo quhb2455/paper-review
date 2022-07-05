@@ -44,7 +44,7 @@
   - [Original Paper](https://arxiv.org/pdf/2003.10580.pdf) \ [Review](https://charmed-creek-53c.notion.site/Meta-Pseudo-Labels-dd13f44e347545abac4f3bc4f133f7b4)
 ### Self Supervised Learning
 - Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles
-  - [Original Paper](https://arxiv.org/pdf/1603.09246.pdf) \ Review
+  - [Original Paper](https://arxiv.org/pdf/1603.09246.pdf) \ Review \ [Code](https://github.com/quhb2455/paper-review/tree/main/code/jigsaw_puzzle)
 ### Loss Function
 - Focal Loss for Dense Object Detection
   - [Original Paper](https://arxiv.org/pdf/1708.02002.pdf) \ [Review](https://charmed-creek-53c.notion.site/Focal-Loss-f5af90040a3e4e138c96df0cd3684aaf)
