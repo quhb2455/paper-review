@@ -1,0 +1,13 @@
+permutation
+we define a set of Jigsaw puzzle permutations, e.g., a tile configuration S = (3, 1, 2, 9, 5, 4, 8, 7, 6), and assign an index to each entry.
+
+we feed multiple Jigsaw puzzles of the same image to the CFN (an average of 69 out of 1000 possible puzzle configurations) and make sure that the tiles are shuffled as much as possible by choosing configurations with sufficiently large average Hamming distance.
+
+1. randomly pick one such permutation
+2. rearrange the 9 input patches according to that permutation
+3. ask the CFN to return a vector with the probability value for each index.
+
+generate
+1. We generate this permutation set iteratively via a greedy algorithm
+2. begin with an empty permutation set
+3. each iteration select the one that has the desired Hamming distance to the current permutation set
